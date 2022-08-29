@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com"
+      th:fragment="layout(content)">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Note Taker</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<!-- Start Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}"><i class="fa-solid fa-book ms-2"></i>    NoteTaker</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/}"><i class="fa-solid fa-house-user"></i>    Home</a>
+                </li>
+            </ul>
+        </div>
+        <span class="d-flex dt-2">
+                <a th:href ="@{/login}" class="btn bg-light"><i class="fa-solid fa-arrow-right-to-bracket"></i>      Login</a>
+                <a th:href ="@{/signup}" class="btn bg-light ms-2"><i class="fa-solid fa-user-plus"></i>        Signup</a>
+            </span>
+    </div>
+</nav>
+
+<!--End Navbar  -->
+<div th:replace="${content}"></div>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous">
+
+</script>
+</body>
+</html>
