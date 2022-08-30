@@ -6,6 +6,13 @@
 
 }
 
+.backimg2 {
+	background: url("./notes2.jpg");
+	height: 100.7vh;
+	width: 100%;
+    background-size: cover;
+}
+
 .navbar .nav-item .nav-link {
 	font-size: 20px;
 	color: white;
