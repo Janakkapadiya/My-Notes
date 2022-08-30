@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="user/base::layout(~{::section})">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+<body>
+<section>
+    <div class="container">
+        <h3 class="text-center">Notes</h3>
+        <h2>Search Results For '[[${keyword}]]'</h2>
+        <div class="col-md-12 mt-3" th:each="n:${searchNotes}">
+            <div class="card paint-card">
+                <div class="card-body">
+                    <div class="text-center">
+                        <img alt="" th:src="@{/noteslogo.png}"
+                             style="width: 50px; height: 50px;" src="">
+                    </div>
+
+                    <h5>[[${n.title}]]</h5>
+                    <p>
+                        [[${n.content}]] <br> <br> <span class="font-weight-bold">Upload
+								Date :</span> [[${n.updateDate}]]
+
+                    </p>
+                    <div class="text-center">
+                        <a th:href="@{'/editNotes/'+${n.id}}" class="btn btn-primary btn-sm">Edit</a>
+
+                        <a th:href="@{'/deleteNotes/'+${n.id}}" class="btn btn-danger btn-sm ml-2">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
