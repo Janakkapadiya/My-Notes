@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -57,6 +58,17 @@ public class UserController {
         model.addAttribute("totalElement", notesByUser.getTotalElements());
 
         return "user/viewNotes";
+    }
+    @GetMapping("/search")
+    public String searchByTitle(Model model,String keyword)
+    {
+        if(keyword != null) {
+            List<Notes> searchNotes = notesRepo.findByKeyword(keyword);
+            model.addAttribute("searchNotes", searchNotes);
+            model.addAttribute("keyword", keyword);
+            model.addAttribute("pageTitle" ,"results of the keywords you have entered ' " + keyword + " ' ");
+        }
+              return "user/searchResults";
     }
 
     @GetMapping("/search")
