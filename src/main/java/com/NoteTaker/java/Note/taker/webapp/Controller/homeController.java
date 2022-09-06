@@ -1,5 +1,6 @@
 package com.NoteTaker.java.Note.taker.webapp.Controller;
 
+import com.NoteTaker.java.Note.taker.webapp.Dto.Emails;
 import com.NoteTaker.java.Note.taker.webapp.Model.User;
 import com.NoteTaker.java.Note.taker.webapp.Repository.UserRepo;
 import lombok.RequiredArgsConstructor;
@@ -29,13 +30,19 @@ public class homeController {
     }
 
     @GetMapping("/login")
-        public String login(){
-            return "login";
+    public String login() {
+        return "login";
     }
 
     @GetMapping("/signup")
-    public String signup(){
+    public String signup() {
         return "signup";
+    }
+
+    @GetMapping("/email")
+    public String email(Model model) {
+        model.addAttribute("Emails", new Emails());
+        return "email";
     }
 
     @PostMapping("/addUser")

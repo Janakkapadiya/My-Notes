@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="base::layout(~{::section})"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Email</title>
+</head>
+<body>
+<section>
+    <h1 class="text-center">Send Us Email</h1>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card paint-card">
+                <div class="card-body">
+                    <form method="post" th:action="@{/sendEmail}" th:object="${Emails}">
+                        <div class="form-row">
+                            <label for="name">Name</label>
+                            <div class="form-group col-md-6">
+                                <input class="form-control" id="name" th:field="*{name}" type="text">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="email">Email</label>
+                            <div class="form-group col-md-6">
+                                <input class="form-control" id="email" th:field="*{email}" type="email">
+                            </div>
+                        </div>
+                        <label for="subject">Subject</label>
+                        <div class="form-group">
+                            <input class="form-control" id="subject" th:field="*{subject}" type="text">
+                        </div>
+                        <label for="content">Content</label>
+                        <div class="form-group mt-2">
+                            <textarea class="form-control" cols="" id="content" rows="3"
+                                      th:field="*{content}"> </textarea>
+                        </div>
+                        <input class="btn btn-primary text-center" type="submit" value="send"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

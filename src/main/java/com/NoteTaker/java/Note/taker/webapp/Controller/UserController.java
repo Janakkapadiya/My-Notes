@@ -1,11 +1,13 @@
 package com.NoteTaker.java.Note.taker.webapp.Controller;
 
+import com.NoteTaker.java.Note.taker.webapp.Dto.Emails;
 import com.NoteTaker.java.Note.taker.webapp.Dto.UserOrders;
 import com.NoteTaker.java.Note.taker.webapp.Model.Notes;
 import com.NoteTaker.java.Note.taker.webapp.Model.User;
 import com.NoteTaker.java.Note.taker.webapp.Repository.NotesRepo;
 import com.NoteTaker.java.Note.taker.webapp.Repository.UserRepo;
 import com.NoteTaker.java.Note.taker.webapp.Service.PaypalService;
+import com.NoteTaker.java.Note.taker.webapp.Utils.EmailSenderUtil;
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payment;
 import com.paypal.base.rest.PayPalRESTException;
@@ -34,6 +36,9 @@ public class UserController {
 
     @Autowired
     private PaypalService paypalService;
+
+    @Autowired
+    private EmailSenderUtil emailSenderUtil;
 
     public static final String SUCCESS_URL = "pay/success";
     public static final String CANCEL_URL = "pay/cancel";
@@ -166,7 +171,7 @@ public class UserController {
 
             e.printStackTrace();
         }
-        return "redirect:/";
+        return "redirect:/paymentForm";
     }
 
     @GetMapping(value = CANCEL_URL)
@@ -185,11 +190,19 @@ public class UserController {
         } catch (PayPalRESTException e) {
 //            System.out.println(e.getMessage());
         }
-        return "redirect:/";
+        return "redirect:/paymentForm";
     }
 
     @GetMapping("/goToPaymentPage")
     public String goToPaymentPage() {
         return "paymentForm";
+    }
+
+
+    @PostMapping("/sendEmail")
+    public String sendEmail(@ModelAttribute Emails email) {
+        System.out.print(email.toString());
+        emailSenderUtil.emailSender(email);
+        return "message";
     }
 }

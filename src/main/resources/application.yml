@@ -1,0 +1,41 @@
+paypal:
+  client:
+    id: Ac8r3VsEKaBm6fQzDtjkEYjHJ1SVzCw_YFrUcL7LEgc44dQcOUx4yNGdWEB8MEhzr-Jq3QJHA3s4jAMh
+    secret: EEjcq9Z4tlEO5HCA9B-5Qh9v_vc3qdJmN_T3Z5XBHaL47gUeSKFHzHKdmSA66o-0LWZjjqSB1om8aYcg
+  mode: sandbox
+server:
+  port: 5656
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    password: janak
+    url: jdbc:h2:file:./db/fileDB
+    username: janak
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 759299826777-8qlk5224amo89vf4a8ln3epl1kbn7onn.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
+#    mail:
+#      host: smtp.gmail.com
+#      port: 587
+#      username: jaykapadiya8899@gmail.com
+#      password: elhkwmhrqtlnqlfr
+#      properties.mail.smtp:
+#        auth: true
+#        starttls.enable: true
+
