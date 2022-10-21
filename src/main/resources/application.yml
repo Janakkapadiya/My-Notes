@@ -1,16 +1,16 @@
 paypal:
   client:
-    id: Ac8r3VsEKaBm6fQzDtjkEYjHJ1SVzCw_YFrUcL7LEgc44dQcOUx4yNGdWEB8MEhzr-Jq3QJHA3s4jAMh
-    secret: EEjcq9Z4tlEO5HCA9B-5Qh9v_vc3qdJmN_T3Z5XBHaL47gUeSKFHzHKdmSA66o-0LWZjjqSB1om8aYcg
+    id: your id
+    secret: your secreat
   mode: sandbox
 server:
-  port: 5656
+  port: ****
 spring:
   datasource:
     driver-class-name: org.h2.Driver
-    password: janak
+    password: your password
     url: jdbc:h2:file:./db/fileDB
-    username: janak
+    username: username
   h2:
     console:
       enabled: true
@@ -30,12 +30,4 @@ spring:
             scope:
               - email
               - profile
-#    mail:
-#      host: smtp.gmail.com
-#      port: 587
-#      username: jaykapadiya8899@gmail.com
-#      password: elhkwmhrqtlnqlfr
-#      properties.mail.smtp:
-#        auth: true
-#        starttls.enable: true
 
